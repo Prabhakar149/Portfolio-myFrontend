@@ -25,7 +25,7 @@ function SkillRating(props) {
 
     function handleClick(){
        
-        if(addSkill){
+        if(addSkill && ratingNumber>0){
             axios.post("https://portfolio-my-backend.vercel.app/addskill",userNewSkill).then((res)=>{
                 alert(res.data.message);
                 setAddSkill("");
@@ -33,7 +33,7 @@ function SkillRating(props) {
                 props.setMySkilledUser(res.data.updatedUser);
             })
         }else{
-            alert("Please add a skill");
+            alert("Please add a skill and rating!");
         }
     }
 
